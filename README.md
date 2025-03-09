@@ -101,4 +101,4 @@ Antes de ejecutar el sistema frontend, asegúrate de que la parte del **backend*
 
 ---
 
-¡Eso es todo! Si tienes algún problema, no dudes en abrir un **Issue** en el repositorio. 😄
+
