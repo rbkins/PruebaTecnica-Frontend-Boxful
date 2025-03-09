@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 Prueba Técnica - Frontend Boxful
+Esta parte del frontend contiene, Nextjs y ant-design, esta desarrollado con typescript y utlizando tecnologias como CSS y HTML.
 
-## Getting Started
+## 🛠 Tecnologías Usadas
 
-First, run the development server:
+-  React (Framework: Next.js)
+- Ant Design (Componentes UI)
+- Node.js & npm (Manejo de paquetes)
+## ⚙ Requisitos Previos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Antes de empezar, asegúrate de tener instalado lo siguiente en tu PC:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Node.js](https://nodejs.org/) (Versión recomendada: 20.15.0 o a partir de +18 pero en mi maquina yo tengo 20.15.0)
+- npm (se instala con Node.js)
+- Git (para clonar el repositorio)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Verifica la instalación con:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+node -v   # Verifica la versión de Node.js
+npm -v    # Verifica la versión de npm
+git --version  # Verifica la instalación de Git
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  Instalación
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clona este repositorio:
+   git clone https://github.com/tu-usuario/PruebaTecnica-Frontend-Boxful.git
 
-## Deploy on Vercel
+2. En visual studio Code dentra a la carpeta
+   Ejemplo: Abre la terminal en VStudio Code
+   PS C:\U***\Dani*****\Desktop\backend> cd frontend
+   en dado caso se aguarde la parte del proyecto en una carpeta llamada backend.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Instala las dependencias.
+   Siempre en la terminal de VStudio ejecuta este comando.
+   
+   npm install
+   
+este instalara las competencias necesarias.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📌 ¿Qué se instalará exactamente?
+📦 Dependencias principales (dependencies):
+✅ @ant-design/icons → Iconos de Ant Design
+✅ @ant-design/nextjs-registry → Integración de Ant Design con Next.js
+✅ antd → La librería principal de Ant Design
+✅ next → El framework Next.js
+✅ react y react-dom → React y su motor de renderizado
+✅ sweetalert2 → Para alertas y modales
+
+⚙ Dependencias de desarrollo (devDependencies):
+✅ @eslint/eslintrc → Configuración de ESLint
+✅ @types/node, @types/react, @types/react-dom → Tipos para TypeScript
+✅ eslint y eslint-config-next → Para linting de código
+✅ typescript → Soporte para TypeScript
+
+
+4. Luego cuando se instalen todas las dependencias necesarias ejecutar el siguiente comando siempre en la terminal de VStudio Code
+   y ejecute el siguiente comando:
+   npm run dev
+
+   Espere a que se compile y dirijase a su navegador de preferencia y coloque en la barra de busqueda
+   http://localhost:3000
+
+
+   Este lo llevara directamente hacia el inicio de sesion.
+
+
+   Para iniciar sesion tiene dos opciones, iniciar sesion con una cuenta por defecto que es.
+   email: admin@gmail.com
+   password: 12345678
+
+   o si gusta puede crear una.
+
+   Cuando se ingrese vera, el sistema y en la parte de formulario esta el formulario funcional y tambien en la parte superior derecha este cerrar sesion.
+
+
+   *********REQUISITOS********
+   Antes de correr el sistema en la parte del frontend asegurese de estar compilando la parte del backend para que fucione.
+   
+
+
+
+
+  
