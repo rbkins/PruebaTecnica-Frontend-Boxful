@@ -1,85 +1,104 @@
+
 # 📦 Prueba Técnica - Frontend Boxful
-Esta parte del frontend contiene, Nextjs y ant-design, esta desarrollado con typescript y utlizando tecnologias como CSS y HTML.
+
+Este proyecto contiene el frontend desarrollado con **Next.js** y **Ant Design**, utilizando **TypeScript**, **CSS** y **HTML**.
 
 ## 🛠 Tecnologías Usadas
 
--  React (Framework: Next.js)
-- Ant Design (Componentes UI)
-- Node.js & npm (Manejo de paquetes)
+- **React** (Framework: Next.js)
+- **Ant Design** (Componentes UI)
+- **Node.js & npm** (Manejo de paquetes)
+
 ## ⚙ Requisitos Previos
 
 Antes de empezar, asegúrate de tener instalado lo siguiente en tu PC:
 
-- [Node.js](https://nodejs.org/) (Versión recomendada: 20.15.0 o a partir de +18 pero en mi maquina yo tengo 20.15.0)
-- npm (se instala con Node.js)
-- Git (para clonar el repositorio)
+- [Node.js](https://nodejs.org/) (Versión recomendada: 20.15.0 o superior, aunque la versión mínima es 18.0.0)
+- **npm** (Se instala automáticamente con Node.js)
+- **Git** (Para clonar el repositorio)
 
-Verifica la instalación con:
+### Verificar la instalación
 
+Ejecuta los siguientes comandos para verificar si tienes los programas necesarios instalados:
 
+```bash
 node -v   # Verifica la versión de Node.js
 npm -v    # Verifica la versión de npm
 git --version  # Verifica la instalación de Git
+```
 
+## 🚀 Instalación
 
-  Instalación
+1. **Clonar el repositorio:**
 
-1. Clona este repositorio:
+   ```bash
    git clone https://github.com/tu-usuario/PruebaTecnica-Frontend-Boxful.git
+   ```
 
-2. En visual studio Code dentra a la carpeta
-   Ejemplo: Abre la terminal en VStudio Code
-   PS C:\U***\Dani*****\Desktop\backend> cd frontend
-   en dado caso se aguarde la parte del proyecto en una carpeta llamada backend.
+2. **Acceder a la carpeta del proyecto:**
 
-3. Instala las dependencias.
-   Siempre en la terminal de VStudio ejecuta este comando.
-   
+   Abre la terminal en **Visual Studio Code** y navega a la carpeta del frontend.
+
+   ```bash
+   cd frontend
+   ```
+
+3. **Instalar las dependencias:**
+
+   En la terminal de Visual Studio Code, ejecuta el siguiente comando para instalar las dependencias necesarias:
+
+   ```bash
    npm install
-   
-este instalara las competencias necesarias.
+   ```
 
-📌 ¿Qué se instalará exactamente?
-📦 Dependencias principales (dependencies):
-✅ @ant-design/icons → Iconos de Ant Design
-✅ @ant-design/nextjs-registry → Integración de Ant Design con Next.js
-✅ antd → La librería principal de Ant Design
-✅ next → El framework Next.js
-✅ react y react-dom → React y su motor de renderizado
-✅ sweetalert2 → Para alertas y modales
+### 📦 ¿Qué se instalará exactamente?
 
-⚙ Dependencias de desarrollo (devDependencies):
-✅ @eslint/eslintrc → Configuración de ESLint
-✅ @types/node, @types/react, @types/react-dom → Tipos para TypeScript
-✅ eslint y eslint-config-next → Para linting de código
-✅ typescript → Soporte para TypeScript
+#### Dependencias principales (dependencies):
+- ✅ **@ant-design/icons** → Iconos de Ant Design
+- ✅ **@ant-design/nextjs-registry** → Integración de Ant Design con Next.js
+- ✅ **antd** → La librería principal de Ant Design
+- ✅ **next** → El framework Next.js
+- ✅ **react** y **react-dom** → React y su motor de renderizado
+- ✅ **sweetalert2** → Para alertas y modales
 
+#### Dependencias de desarrollo (devDependencies):
+- ✅ **@eslint/eslintrc** → Configuración de ESLint
+- ✅ **@types/node**, **@types/react**, **@types/react-dom** → Tipos para TypeScript
+- ✅ **eslint** y **eslint-config-next** → Para linting de código
+- ✅ **typescript** → Soporte para TypeScript
 
-4. Luego cuando se instalen todas las dependencias necesarias ejecutar el siguiente comando siempre en la terminal de VStudio Code
-   y ejecute el siguiente comando:
+4. **Ejecutar el proyecto:**
+
+   Una vez instaladas todas las dependencias, ejecuta el siguiente comando en la terminal de Visual Studio Code:
+
+   ```bash
    npm run dev
+   ```
 
-   Espere a que se compile y dirijase a su navegador de preferencia y coloque en la barra de busqueda
+   Espera a que se compile y luego abre tu navegador y accede a la siguiente URL:
+
+   ```
    http://localhost:3000
+   ```
 
+   Esto te llevará directamente a la pantalla de inicio de sesión.
 
-   Este lo llevara directamente hacia el inicio de sesion.
+## 🔑 Iniciar sesión
 
+Para acceder al sistema, puedes usar una de las siguientes opciones:
 
-   Para iniciar sesion tiene dos opciones, iniciar sesion con una cuenta por defecto que es.
-   email: admin@gmail.com
-   password: 12345678
+### Opción 1: Cuenta por defecto
+- **Email:** admin@gmail.com
+- **Contraseña:** 12345678
 
-   o si gusta puede crear una.
+### Opción 2: Crear tu propia cuenta
 
-   Cuando se ingrese vera, el sistema y en la parte de formulario esta el formulario funcional y tambien en la parte superior derecha este cerrar sesion.
+Una vez ingreses, verás el sistema con un formulario funcional. Además, en la parte superior derecha tendrás la opción de **Cerrar sesión**.
 
+## ⚠️ Requisitos Backend
 
-   *********REQUISITOS********
-   Antes de correr el sistema en la parte del frontend asegurese de estar compilando la parte del backend para que fucione.
-   
+Antes de ejecutar el sistema frontend, asegúrate de que la parte del **backend** esté compilando correctamente para que todo funcione correctamente.
 
+---
 
-
-
-  
+¡Eso es todo! Si tienes algún problema, no dudes en abrir un **Issue** en el repositorio. 😄
