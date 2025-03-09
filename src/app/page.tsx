@@ -1,95 +1,168 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import React, { useState } from "react";
+import { Card, Form, Input, Button, Typography, Alert } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
+import Head from "next/head";
+const { Title, Text } = Typography;
+
+export default function LoginPage() {
+  const [loading, setLoading] = useState(false);
+  const [loginError, setLoginError] = useState("");
+  const router = useRouter();
+
+  const onFinish = async (values: any) => {
+    try {
+      setLoading(true);
+      setLoginError("");
+
+      const response = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          setLoginError("Usuario o contraseña incorrectos");
+        } else {
+          setLoginError(data.message || "Error en el inicio de sesión");
+        }
+        throw new Error(data.message || "Error en el inicio de sesión");
+      }
+
+      // Guardar el token en localStorage o en cookies
+      localStorage.setItem("token", data.access_token);
+
+      Swal.fire({
+        title: "¡Inicio de sesión exitoso!",
+        text: "Has iniciado sesión correctamente.",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        router.push("/menu");
+      });
+    } catch (error: any) {
+      if (!loginError) {
+        setLoginError(error.message || "Error al iniciar sesión");
+      }
+
+      Swal.fire({
+        title: "Error",
+        text: error.message || "Error al iniciar sesión",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        background: "#f0f2f5",
+      }}
+    >
+      <Card
+        style={{
+          width: "100%",
+          maxWidth: "420px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+        }}
+        variant="borderless"
+      >
+        <div style={{ textAlign: "center", marginBottom: "24px" }}>
+          <Title level={2} style={{ margin: "0 0 8px 0" }}>
+            Bienvenido
+          </Title>
+          <Text type="secondary">Inicia sesión para continuar</Text>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        {loginError && (
+          <Alert
+            message="Error de autenticación"
+            description={loginError}
+            type="error"
+            showIcon
+            style={{ marginBottom: "16px" }}
+            closable
+            onClose={() => setLoginError("")}
           />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        )}
+
+        <Form
+          name="login_form"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          layout="vertical"
+          size="large"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Form.Item
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Por favor ingresa tu correo electrónico",
+              },
+              {
+                type: "email",
+                message: "Ingresa un correo electrónico válido",
+              },
+            ]}
+          >
+            <Input
+              prefix={<UserOutlined />}
+              placeholder="Correo electrónico"
+              autoComplete="email"
+              status={loginError ? "error" : ""}
+            />
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            rules={[
+              { required: true, message: "Por favor ingresa tu contraseña" },
+            ]}
+          >
+            <Input.Password
+              prefix={<LockOutlined />}
+              placeholder="Contraseña"
+              autoComplete="current-password"
+              status={loginError ? "error" : ""}
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ width: "100%" }}
+              loading={loading}
+            >
+              Iniciar Sesión
+            </Button>
+          </Form.Item>
+
+          <div style={{ textAlign: "center" }}>
+            <Text type="secondary">
+              ¿No tienes una cuenta?{" "}
+              <Link href="/registrar">Regístrate ahora</Link>
+            </Text>
+          </div>
+        </Form>
+      </Card>
     </div>
   );
 }
